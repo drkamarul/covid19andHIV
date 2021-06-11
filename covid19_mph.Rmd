@@ -50,7 +50,7 @@ mys <- read_excel('covid19_mph.xlsx',
 ```{r}
 mys2 <- mys %>%
   select(Time = Tarikh, I = Total) %>%
-  filter(Time > '2020-03-04' & Time < '2021-01-01')
+  filter(Time > '2020-03-03' & Time < '2021-01-01')
 ```
 
 # Calculate R
@@ -75,25 +75,26 @@ Link https://en.wikipedia.org/wiki/Malaysian_movement_control_order
 
 
 ```{r}
-difftime(ymd('2020-03-17'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-03-31'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-04-14'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-04-28'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-05-03'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-06-09'), ymd('2020-03-04'), 'days')
-difftime(ymd('2020-12-31'), ymd('2020-03-04'), 'days')
+difftime(ymd('2020-03-17'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-03-31'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-04-14'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-04-28'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-05-03'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-06-09'), ymd('2020-03-03'), 'days')
+difftime(ymd('2020-12-31'), ymd('2020-03-03'), 'days')
 ```
 # Plot incidence
 
 ```{r}
 p_I_du <- plot(mys_parametric_si_du, "incid") 
+p_I_du
 p_I_du + theme_bw() + 
-  geom_vline(xintercept = 13, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 27, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 41, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 55, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 60, colour = 'green', size = 1.2) +
-  geom_vline(xintercept = 97, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 14, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 28, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 42, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 56, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 61, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 98, colour = 'green', size = 1.2) +
   geom_text(aes(x = 13, label = '\nMCO Phase 1', y=2000),
             colour="blue", angle=90, hjust = 1, text=element_text(size=11)) +
   geom_text(aes(x = 27, label = '\nMCO Phase 2', y= 2000),
@@ -114,12 +115,12 @@ p_I_du + theme_bw() +
 ```{r}
 p_R_du <- plot(mys_parametric_si_du, "R") 
 p_R_du + theme_bw() + 
-  geom_vline(xintercept = 13, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 27, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 41, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 55, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 60, colour = 'green', size = 1.2) +
-  geom_vline(xintercept = 97, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 14, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 28, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 42, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 56, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 61, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 98, colour = 'green', size = 1.2) +
   geom_text(aes(x = 13, label = '\nMCO Phase 1', y=3.2),
             colour="blue", angle=90, hjust = 1, text=element_text(size=11)) +
   geom_text(aes(x = 27, label = '\nMCO Phase 2', y= 3.2),
@@ -156,7 +157,7 @@ kel <- read_excel('covid19_mph.xlsx',
 ```{r}
 kel2 <- kel %>%
   select(Time = Tarikh, I = Total) %>%
-  filter(Time > '2020-03-04' & Time < '2021-01-01')
+  filter(Time > '2020-03-03' & Time < '2021-01-01')
 ```
 
 # Calculate R
@@ -176,12 +177,12 @@ kel_parametric_si_du <- estimate_R(kel2,
 ```{r}
 kel_p_I_du <- plot(kel_parametric_si_du, "incid") 
 kel_p_I_du + theme_bw() + 
-  geom_vline(xintercept = 13, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 27, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 41, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 55, colour = 'red', size = 1.2) +
-  geom_vline(xintercept = 60, colour = 'green', size = 1.2) +
-  geom_vline(xintercept = 97, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 14, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 28, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 42, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 56, colour = 'red', size = 1.2) +
+  geom_vline(xintercept = 61, colour = 'green', size = 1.2) +
+  geom_vline(xintercept = 98, colour = 'green', size = 1.2) +
   geom_text(aes(x = 13, label = '\nMCO Phase 1', y=50),
             colour="blue", angle=90, hjust = 1, text=element_text(size=11)) +
   geom_text(aes(x = 27, label = '\nMCO Phase 2', y= 50),
