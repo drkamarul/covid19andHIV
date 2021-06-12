@@ -27,7 +27,7 @@ data_list <- import_list('covid19_mph.xlsx')
 # using tidyverser
 data_list2 <- import_list("covid19_mph.xlsx", setclass = "tbl")
 
-# using tidyverse
+# using tidyverse (THIS IS VERY GOOD)
 path <- here("covid19_mph.xlsx")
 all_data <- path %>% 
   excel_sheets() %>% 
